@@ -38,14 +38,12 @@ project.modules
 
   .add('app')
 
-  // Demo module ...
+  // The angular inform module
 
-  .add('ngLogo', {
-
-    // ... with different folder than the module name.
-
-    folder: 'angular-logo'
+  .add('inform', {
+    folder: 'angular-inform'
   });
+
 
 // - - - - 8-< - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

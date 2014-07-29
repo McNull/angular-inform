@@ -33,6 +33,7 @@
     "gulp-uglify": "^0.2.1",
     "gulp-util": "^2.2.20",
     "karma": "^0.12.19",
+    "karma-growl-reporter": "^0.1.1",
     "karma-jasmine": "^0.1.5",
     "karma-phantomjs-launcher": "^0.1.4",
     "karma-xml-reporter": "^0.1.4",
