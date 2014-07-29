@@ -1,0 +1,41 @@
+{
+  "name": "angular-inform",
+  "version": "0.0.0",
+  "description": "A growl-like easy-to-use message toaster for angular.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "deep-extend": "^0.2.11",
+    "event-stream": "^3.1.7",
+    "express": "^4.1.2",
+    "glob": "^3.2.11",
+    "gulp": "^3.6.2",
+    "gulp-angular": "^0.1.2",
+    "gulp-autoprefixer": "0.0.8",
+    "gulp-clean": "^0.2.4",
+    "gulp-concat": "^2.2.0",
+    "gulp-filter": "^0.4.1",
+    "gulp-inject": "^0.4.1",
+    "gulp-insert": "^0.3.0",
+    "gulp-karma": "0.0.4",
+    "gulp-minify-css": "^0.3.7",
+    "gulp-minify-html": "^0.1.4",
+    "gulp-ng-html2js": "^0.1.7",
+    "gulp-ngmin": "^0.2.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-size": "^0.3.1",
+    "gulp-svgmin": "^0.4.6",
+    "gulp-tap": "^0.1.1",
+    "gulp-uglify": "^0.2.1",
+    "gulp-util": "^2.2.20",
+    "karma": "^0.12.19",
+    "karma-jasmine": "^0.1.5",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-xml-reporter": "^0.1.4",
+    "minimist": "0.0.8"
+  }
+}

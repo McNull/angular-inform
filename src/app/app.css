@@ -1,0 +1,13 @@
+body {
+  padding-top: 59px;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 900px;
+  min-width: 320px;
+}
+
+html {
+  overflow-y: scroll;
+}

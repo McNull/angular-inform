@@ -1,0 +1,23 @@
+{
+  "name": "gulp-angular-project",
+  "version": "0.0.0",
+  "authors": [
+    "Null McNull <no@spam.org>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.16",
+    "angular-route": "~1.2.16",
+    "bootstrap-css": "~3.1.1"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.2.16"
+  }
+}
