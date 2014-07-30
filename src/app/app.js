@@ -13,7 +13,4 @@ app.config(function($routeProvider) {
 
 });
 
-app.controller('MainCtrl', function($scope, inform) {
-
-  
-});
+app.controller('MainCtrl', function($scope) {});

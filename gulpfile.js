@@ -19,6 +19,7 @@ var settings = {
         'bootstrap-css/css/bootstrap.css'
       ],
       test: [
+        'jquery/dist/jquery.js',
         'angular-mocks/angular-mocks.js'
       ]
     }

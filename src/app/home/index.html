@@ -2,12 +2,55 @@
 
   <div class="jumbotron">
 
-    <div ng-logo></div>
+    <h1>Angular Inform</h1>
+    <p>A growl-like easy-to-use message toaster for angular.</p>
 
-    <h1>Hello Website</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad asperiores autem consectetur corporis delectus eligendi est et fugit, ipsam laboriosam libero magnam nemo quam quia quod repellendus saepe sunt, velit!</p>
   </div>
 
-  <!--<div inform></div>-->
+  <div ng-controller="MessagesController">
+
+    <h3>Javascript</h3>
+
+    <form class="messages-form form-inline">
+      <div class="form-group">
+        <input class="form-control" type="text" ng-model="msg.content" placeholder="Content">
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="number" ng-model="msg.options.ttl" placeholder="TTL">
+      </div>
+      <div class="form-group">
+        <select class="form-control" ng-model="msg.options.type">
+          <option value="success">Success</option>
+          <option value="info">Info</option>
+          <option value="warning">Warning</option>
+          <option value="danger">Danger</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-default" ng-click="add(msg)">Add</button>
+      </div>
+      <div class="form-group">
+        <button type="button" class="btn btn-default" ng-click="clear()">Clear</button>
+      </div>
+    </form>
+
+    <pre><code>{{ jsStatement() }}</code></pre>
+
+    <h3>Element</h3>
+
+    <form class="messages-form form-inline">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" ng-model="element.fixed"> Display messages at fixed position
+        </label>
+      </div>
+    </form>
+    <pre ng-if="!element.fixed"><code>&lt;div inform&gt;&lt;/div&gt;</code></pre>
+    <pre ng-if="element.fixed"><code>&lt;div inform class=&quot;inform-fixed&quot;&gt;&lt;/div&gt;</code></pre>
+
+    <h3 ng-if="!element.fixed">Messages</h3>
+    <div inform ng-class="{ 'inform-fixed': element.fixed }"></div>
+
+  </div>
 
 </div>

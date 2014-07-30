@@ -12,38 +12,82 @@ inform.provider('inform', function () {
     return provider._defaults;
   };
 
+
   this.$get = ['$timeout', function ($timeout) {
 
     var _messages = [];
 
-    function add(content, options) {
-      var msg = angular.extend({}, provider._defaults, options);
-      msg.content = content;
-      _messages.push(msg);
+    function _indexOf(predicate) {
+      var i = _messages.length;
 
-      if(msg.ttl > 0) {
-        msg.timeout = $timeout(function() {
+      while (i--) {
+        if (predicate(_messages[i])) {
+          return i;
+        }
+      }
+
+      return -1;
+    }
+
+    function cancelTimeout(msg) {
+      if (msg.timeout) {
+        $timeout.cancel(msg.timeout);
+        delete msg.timeout;
+      }
+    }
+
+    function setTimeout(msg) {
+
+      cancelTimeout(msg);
+
+      if (msg.ttl > 0) {
+        msg.timeout = $timeout(function () {
           remove(msg);
         }, msg.ttl);
       }
+    }
+
+    function add(content, options) {
+
+      var msg = angular.extend({}, provider._defaults, options);
+
+      var idx = _indexOf(function (x) {
+        return x.content === content && x.type == msg.type;
+      });
+
+      if (idx >= 0) {
+
+        msg = _messages[idx];
+        msg.count += 1;
+
+      } else {
+
+        msg.content = content;
+        msg.tickCount = +new Date();
+        msg.count = 1;
+
+        _messages.push(msg);
+      }
+
+      setTimeout(msg);
 
       return msg;
     }
 
     function remove(msg) {
-      var i = _messages.length;
-      while (i--) {
-        if (_messages[i] === msg) {
-          _messages.splice(i, 1);
 
-          if(msg.timeout) {
-            $timeout.cancel(msg.timeout);
-            delete msg.timeout;
-          }
+      var idx = _indexOf(function (x) {
+        return x === msg;
+      });
 
-          break;
-        }
+      if (idx >= 0) {
+        _messages.splice(idx, 1);
+        cancelTimeout(msg);
       }
+    }
+
+    function clear() {
+      _messages.length = 0;
     }
 
     return {
@@ -51,7 +95,10 @@ inform.provider('inform', function () {
         return _messages;
       },
       add: add,
-      remove: remove
+      remove: remove,
+      clear: clear,
+      cancelTimeout: cancelTimeout,
+      setTimeout: setTimeout
     };
   }];
 

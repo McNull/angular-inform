@@ -9,15 +9,21 @@
     "**/.*",
     "node_modules",
     "vendor",
-    "test",
-    "tests"
+    "public",
+    "src",
+    "karma.conf.js",
+    "package.json",
+    "test-results.testxml"
   ],
   "dependencies": {
-    "angular": "~1.2.16",
-    "angular-route": "~1.2.16",
-    "bootstrap-css": "~3.1.1"
+    "angular": "~1.2.16"
   },
   "devDependencies": {
-    "angular-mocks": "~1.2.16"
+    "angular-mocks": "~1.2.16",
+    "angular-route": "~1.2.16",
+    "bootstrap-css": "~3.1.1",
+    "jquery": "1.*",
+    "modernizr": "~2.8.3",
+    "respondJS": "~1.4.2"
   }
 }
