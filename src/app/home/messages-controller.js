@@ -1,4 +1,4 @@
-app.controller('MessagesController', function($scope, inform) {
+app.controller('MessagesController', function($scope, inform, $http) {
 
   inform.add('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab amet, blanditiis debitis dolorem doloremque et facilis harum in iusto laborum minima molestiae nemo nisi non possimus, quisquam rerum tempore voluptates.', { ttl: 0, type: 'success' });
   inform.add('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab amet, blanditiis debitis dolorem doloremque et facilis harum in iusto laborum minima molestiae nemo nisi non possimus, quisquam rerum tempore voluptates.', { ttl: 0, type: 'info' });
@@ -50,6 +50,10 @@ app.controller('MessagesController', function($scope, inform) {
 
   $scope.throwException = function() {
     throw new Error('Oh dear! Something bad has occured!');
+  };
+
+  $scope.throwHttpException = function() {
+    $http.get('/this/does/not/exist', function() {});
   };
 
   $scope.clear = inform.clear;

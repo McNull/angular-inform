@@ -53,8 +53,11 @@
 
     <h3>Unhandled Exceptions</h3>
     <pre><code>angular.module('myModule', ['inform', 'inform-exception']);</code></pre>
-    <button type="button" class="btn btn-danger" ng-click="throwException()">Throw up!</button>
+    <button type="button" class="btn btn-danger" ng-click="throwException()">Throw unhandled exception</button>
 
+    <h3>HTTP Exceptions</h3>
+    <pre><code>angular.module('myModule', ['inform', 'inform-http-exception']);</code></pre>
+    <button type="button" class="btn btn-danger" ng-click="throwHttpException()">Request invalid url</button>
   </div> <!-- MessageController -->
 
 

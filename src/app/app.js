@@ -1,5 +1,5 @@
 
-var app = angular.module('app', ['ngRoute', 'inform', 'inform-exception', 'showdown']);
+var app = angular.module('app', ['ngRoute', 'inform', 'inform-exception', 'inform-http-exception', 'showdown']);
 
 app.config(function($routeProvider) {
 
