@@ -15,5 +15,5 @@ app.config(function($routeProvider) {
 
 app.controller('MainCtrl', function($scope, inform) {
 
-  
+
 });
