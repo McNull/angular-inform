@@ -1,5 +1,6 @@
 {
-  "name": "gulp-angular-project",
+  "name": "angular-inform",
+  "description": "A growl-like easy-to-use message toaster for angular.",
   "version": "0.0.1",
   "authors": [
     "Null McNull <no@spam.org>"
@@ -17,8 +18,7 @@
     "LICENSE",
     "LICENSE-banner.txt",
     "README.md",
-    "package.sh",
-    ""
+    "package.sh"
   ],
   "dependencies": {
     "angular": "~1.2.16"
