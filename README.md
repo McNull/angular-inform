@@ -8,6 +8,10 @@ Besides AngularJS (~1.2.4), none.
 
 Tested under _Internet Explorer 8+_, _Chrome 34+_, _FireFox 28+_ and _Safari 7+_. The styling should work on any _decent_ mobile device.
 
+#### Demo
+
+Either visit [this Plunker](http://plnkr.co/edit/x0sJj8) page or clone this repository locally and run a http-server from the `public` folder.
+
 Installation
 ============
 
