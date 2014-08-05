@@ -17,8 +17,10 @@
     "test-results.testxml",
     "LICENSE",
     "LICENSE-banner.txt",
+    "license-banner.txt",
     "README.md",
-    "package.sh"
+    "package.sh",
+    "gulpfile.js"
   ],
   "dependencies": {
     "angular": "~1.2.16"
