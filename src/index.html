@@ -23,6 +23,25 @@
 <body>
 
 <header>
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Angular Inform</h1>
+      <p>A small growl-like easy-to-use message toaster for angular.</p>
+
+      <ul class="nav nav-pills">
+        <li ng-class="{ active: activeUrl == '/demo' }">
+          <a href="#/demo">Demo</a>
+        </li>
+        <li ng-class="{ active: activeUrl == '/readme' }">
+          <a href="#/readme">Read me</a>
+        </li>
+        <li>
+          <a target="_blank" href="https://github.com/McNull/angular-inform">GitHub</a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
 </header>
 
 <section ng-view></section>

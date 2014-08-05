@@ -3,15 +3,28 @@ var app = angular.module('app', ['ngRoute', 'inform', 'inform-exception', 'infor
 
 app.config(function($routeProvider) {
 
-  $routeProvider.when('/', {
-    templateUrl: 'app/home/index.html'
+  $routeProvider.when('/readme', {
+    templateUrl: 'app/readme/readme.html'
+  });
+
+  $routeProvider.when('/demo', {
+    templateUrl: 'app/demo/demo.html'
   });
 
   $routeProvider.otherwise({
-    redirectTo: '/'
+    redirectTo: '/demo'
   });
 
 });
 
-app.controller('MainCtrl', function($scope) {
+app.controller('MainCtrl', function($scope, $location) {
+
+  // Keep track of the active url to highlite the nav-pill
+
+  $scope.$watch(function() {
+    return $location.path();
+  }, function(value) {
+    $scope.activeUrl = value;
+  });
+
 });
