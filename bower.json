@@ -1,7 +1,7 @@
 {
   "name": "angular-inform",
   "description": "A growl-like easy-to-use message toaster for angular.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "authors": [
     "Null McNull <no@spam.org>"
   ],
