@@ -1,6 +1,7 @@
 {
-  "name": "gulp-angular-project",
-  "version": "0.0.0",
+  "name": "angular-inform",
+  "description": "A growl-like easy-to-use message toaster for angular.",
+  "version": "0.0.1",
   "authors": [
     "Null McNull <no@spam.org>"
   ],
@@ -9,15 +10,32 @@
     "**/.*",
     "node_modules",
     "vendor",
-    "test",
-    "tests"
+    "public",
+    "src",
+    "karma.conf.js",
+    "package.json",
+    "test-results.testxml",
+    "LICENSE",
+    "LICENSE-banner.txt",
+    "license-banner.txt",
+    "README.md",
+    "package.sh",
+    "gulpfile.js"
   ],
   "dependencies": {
-    "angular": "~1.2.16",
-    "angular-route": "~1.2.16",
-    "bootstrap-css": "~3.1.1"
+    "angular": "~1.2.16"
   },
+  "main": [
+    "dist/angular-inform.min.css",
+    "dist/angular-inform.min.js"
+  ],
   "devDependencies": {
-    "angular-mocks": "~1.2.16"
+    "angular-mocks": "~1.2.16",
+    "angular-route": "~1.2.16",
+    "bootstrap-css": "~3.1.1",
+    "jquery": "1.*",
+    "modernizr": "~2.8.3",
+    "respondJS": "~1.4.2",
+    "showdown": "~0.3.1"
   }
 }

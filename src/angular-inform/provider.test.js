@@ -1,7 +1,6 @@
 describe('angular-inform', function () {
 
 
-
   describe('informProvider', function () {
 
     // http://stackoverflow.com/questions/14771810/how-to-test-angularjs-custom-provider
@@ -16,7 +15,8 @@ describe('angular-inform', function () {
 
       module('inform', 'i.am.so.fake');
 
-      inject(function () {});
+      inject(function () {
+      });
 
     });
 
@@ -24,7 +24,7 @@ describe('angular-inform', function () {
       expect(provider).not.toBeUndefined();
     });
 
-    it('should return the default options', function() {
+    it('should return the default options', function () {
 
       var defaults = provider.defaults();
 
@@ -32,7 +32,7 @@ describe('angular-inform', function () {
 
     });
 
-    it('should extend the default options', function() {
+    it('should extend the default options', function () {
 
       expect(provider.defaults().type).not.toBe('pannekoek'); // u nvr knw
 
@@ -45,26 +45,26 @@ describe('angular-inform', function () {
 
   });
 
-  describe('informService', function() {
+  describe('informService', function () {
 
     var service, $timeout;
 
-    beforeEach(function() {
+    beforeEach(function () {
       module('inform');
 
       //angular.copy(origDefaultOptions, defaultOptions);
 
-      inject(function(inform, _$timeout_) {
+      inject(function (inform, _$timeout_) {
         service = inform;
         $timeout = _$timeout_;
       });
     });
 
-    it('should resolve the inform service', function() {
+    it('should resolve the inform service', function () {
       expect(service).not.toBeUndefined();
     });
 
-    it('should add a message', function() {
+    it('should add a message', function () {
 
       expect(service.messages().length).toBe(0);
 
@@ -74,12 +74,12 @@ describe('angular-inform', function () {
       expect(service.messages()[0].content).toBe('simple message');
     });
 
-    it('should add a message using the provided type', function() {
+    it('should add a message using the provided type', function () {
       service.add('simple message', { type: 'pannekoek' });
       expect(service.messages()[0].type).toBe('pannekoek');
     });
 
-    it('should remove the specified message', function() {
+    it('should remove the specified message', function () {
       expect(service.messages().length).toBe(0);
       var msg = service.add('kill me');
       expect(service.messages().length).toBe(1);
@@ -87,7 +87,7 @@ describe('angular-inform', function () {
       expect(service.messages().length).toBe(0);
     });
 
-    it('should remove the message after a timeout', function() {
+    it('should remove the message after a timeout', function () {
 
       expect(service.messages().length).toBe(0);
       service.add('timeout me');
@@ -99,7 +99,7 @@ describe('angular-inform', function () {
 
     });
 
-    it('should cancel a pending timeout when removing a msg', function() {
+    it('should cancel a pending timeout when removing a msg', function () {
 
       var msg = service.add('timeout me');
       expect(msg.timeout).toBeDefined();
@@ -110,8 +110,59 @@ describe('angular-inform', function () {
 
     });
 
-  });
+    it('should clear all messages', function () {
 
+      var c = 5;
+
+      while (c--) {
+        service.add('message ' + c);
+      }
+
+      service.clear();
+
+      expect(service.messages().length).toBe(0);
+
+    });
+
+    it('should not display duplicate messages', function () {
+
+      var c = 5;
+
+      while (c--) {
+        service.add('duplicate message');
+      }
+
+      expect(service.messages().length).toBe(1);
+    });
+
+    it('should allow duplicate messages of different kinds', function () {
+
+      service.add('duplicate message', { type: 'success' });
+      service.add('duplicate message', { type: 'info' });
+
+      expect(service.messages().length).toBe(2);
+    });
+
+    it('should return the same msg object for duplicates', function () {
+
+      var msg1 = service.add('duplicate message');
+      var msg2 = service.add('duplicate message');
+
+      expect(msg1).toBe(msg2);
+
+    });
+
+    it('should increase occurence count for duplicates', function () {
+
+      var duplicate = service.add('duplicate message');
+      service.add('duplicate message');
+      service.add('duplicate message');
+
+      expect(duplicate.count).toBe(3);
+
+    });
+
+  });
 
 
 });
