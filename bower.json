@@ -15,10 +15,10 @@
     "karma.conf.js",
     "package.json",
     "test-results.testxml",
-    "./LICENSE",
+    "/LICENSE",
     "LICENSE-banner.txt",
     "license-banner.txt",
-    "./README.md",
+    "/README.md",
     "package.sh",
     "gulpfile.js"
   ],
