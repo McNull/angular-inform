@@ -1,6 +1,6 @@
 {
   "name": "gulp-angular-project",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "authors": [
     "Null McNull <no@spam.org>"
   ],
@@ -13,11 +13,20 @@
     "src",
     "karma.conf.js",
     "package.json",
-    "test-results.testxml"
+    "test-results.testxml",
+    "LICENSE",
+    "LICENSE-banner.txt",
+    "README.md",
+    "package.sh",
+    ""
   ],
   "dependencies": {
     "angular": "~1.2.16"
   },
+  "main": [
+    "dist/angular-inform.min.css",
+    "dist/angular-inform.min.js"
+  ],
   "devDependencies": {
     "angular-mocks": "~1.2.16",
     "angular-route": "~1.2.16",
