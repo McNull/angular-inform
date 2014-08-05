@@ -5,6 +5,8 @@ app.controller('MessagesController', function($scope, inform) {
   inform.add('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda atque, earum est id illum laboriosam maxime praesentium quisquam! Blanditiis cum deleniti eum impedit quasi. Eius eligendi eveniet ipsum natus quis.', { ttl: 0, type: 'warning' });
   inform.add('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda deserunt dicta esse, ipsam molestiae nobis provident qui quidem quis repudiandae totam veniam voluptas voluptatum? A adipisci aut cumque earum pariatur?', { ttl: 0, type: 'danger' });
 
+  $scope.inform = inform;
+
   $scope.msg = {
     content: 'The message content',
     options: {
@@ -44,6 +46,10 @@ app.controller('MessagesController', function($scope, inform) {
 
   $scope.add = function(msg) {
     inform.add(msg.content, msg.options);
+  };
+
+  $scope.throwException = function() {
+    throw new Error('Oh dear! Something bad has occured!');
   };
 
   $scope.clear = inform.clear;
