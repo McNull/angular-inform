@@ -13,7 +13,7 @@ var settings = {
       js: [
         'angular/angular.js',
         'angular-route/angular-route.js',
-        'angular-animate/angular-animate.js'
+        'showdown/compressed/showdown.js'
       ],
       css: [
         'bootstrap-css/css/bootstrap.css'
@@ -43,8 +43,18 @@ project.modules
 
   .add('inform', {
     folder: 'angular-inform'
+  })
+
+  .add('showdown', {
+    folder: 'angular-showdown'
   });
 
+
+// - - - - 8-< - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+gulp.task('build', ['index'], function() {
+  gulp.src('README.md').pipe(gulp.dest('public/app'));
+});
 
 // - - - - 8-< - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

@@ -24,6 +24,7 @@
     "bootstrap-css": "~3.1.1",
     "jquery": "1.*",
     "modernizr": "~2.8.3",
-    "respondJS": "~1.4.2"
+    "respondJS": "~1.4.2",
+    "showdown": "~0.3.1"
   }
 }

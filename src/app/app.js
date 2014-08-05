@@ -1,5 +1,5 @@
 
-var app = angular.module('app', ['ngRoute', 'inform']);
+var app = angular.module('app', ['ngRoute', 'inform', 'showdown']);
 
 app.config(function($routeProvider) {
 
@@ -13,4 +13,5 @@ app.config(function($routeProvider) {
 
 });
 
-app.controller('MainCtrl', function($scope) {});
+app.controller('MainCtrl', function($scope) {
+});
