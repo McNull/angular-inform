@@ -1,13 +1,6 @@
 <div class="container">
 
-  <div class="jumbotron">
-
-    <h1>Angular Inform</h1>
-    <p>A growl-like easy-to-use message toaster for angular.</p>
-
-  </div>
-
-  <div ng-controller="MessagesController">
+  <div ng-controller="DemoController">
 
     <h3>Javascript</h3>
 
@@ -48,11 +41,16 @@
     <pre ng-if="!element.fixed"><code>&lt;div inform&gt;&lt;/div&gt;</code></pre>
     <pre ng-if="element.fixed"><code>&lt;div inform class=&quot;inform-fixed&quot;&gt;&lt;/div&gt;</code></pre>
 
-    <h3 ng-if="!element.fixed">Messages</h3>
+    <h4 ng-if="!element.fixed && inform.messages().length > 0">Messages</h4>
     <div inform ng-class="{ 'inform-fixed': element.fixed }"></div>
 
-  </div>
+    <h3>Unhandled Exceptions</h3>
+    <pre><code>angular.module('myModule', ['inform', 'inform-exception']);</code></pre>
+    <button type="button" class="btn btn-danger" ng-click="throwException()">Throw unhandled exception</button>
 
-  <div showdown showdown-src="app/README.md"></div>
+    <h3>HTTP Exceptions</h3>
+    <pre><code>angular.module('myModule', ['inform', 'inform-http-exception']);</code></pre>
+    <button type="button" class="btn btn-danger" ng-click="throwHttpException()">Request invalid url</button>
+  </div> <!-- MessageController -->
 
 </div>
