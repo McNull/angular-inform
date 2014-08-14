@@ -19,7 +19,9 @@
     "LICENSE-banner.txt",
     "license-banner.txt",
     "package.sh",
-    "gulpfile.js"
+    "gulpfile.js",
+    "/README.md",
+    "/LICENSE"
   ],
   "dependencies": {
     "angular": "~1.2.16"
