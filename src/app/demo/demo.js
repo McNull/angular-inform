@@ -1,11 +1,11 @@
 app.controller('DemoController', function($scope, inform, $http) {
 
-  if(inform.messages().length === 0) {
-    inform.add('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab amet, blanditiis debitis dolorem doloremque et facilis harum in iusto laborum minima molestiae nemo nisi non possimus, quisquam rerum tempore voluptates.', { ttl: 0, type: 'success' });
-    inform.add('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab amet, blanditiis debitis dolorem doloremque et facilis harum in iusto laborum minima molestiae nemo nisi non possimus, quisquam rerum tempore voluptates.', { ttl: 0, type: 'info' });
-    inform.add('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda atque, earum est id illum laboriosam maxime praesentium quisquam! Blanditiis cum deleniti eum impedit quasi. Eius eligendi eveniet ipsum natus quis.', { ttl: 0, type: 'warning' });
-    inform.add('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda deserunt dicta esse, ipsam molestiae nobis provident qui quidem quis repudiandae totam veniam voluptas voluptatum? A adipisci aut cumque earum pariatur?', { ttl: 0, type: 'danger' });
-  }
+//  if(inform.messages().length === 0) {
+//    inform.add('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab amet, blanditiis debitis dolorem doloremque et facilis harum in iusto laborum minima molestiae nemo nisi non possimus, quisquam rerum tempore voluptates.', { ttl: 0, type: 'success' });
+//    inform.add('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab amet, blanditiis debitis dolorem doloremque et facilis harum in iusto laborum minima molestiae nemo nisi non possimus, quisquam rerum tempore voluptates.', { ttl: 0, type: 'info' });
+//    inform.add('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda atque, earum est id illum laboriosam maxime praesentium quisquam! Blanditiis cum deleniti eum impedit quasi. Eius eligendi eveniet ipsum natus quis.', { ttl: 0, type: 'warning' });
+//    inform.add('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda deserunt dicta esse, ipsam molestiae nobis provident qui quidem quis repudiandae totam veniam voluptas voluptatum? A adipisci aut cumque earum pariatur?', { ttl: 0, type: 'danger' });
+//  }
 
   $scope.inform = inform;
 

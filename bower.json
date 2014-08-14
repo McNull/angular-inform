@@ -2,7 +2,7 @@
   "name": "angular-inform",
   "description": "A small growl-like easy-to-use message toaster for angular.",
   "keywords": [ "angular", "growl", "message", "message-list", "notification", "notification-list", "toaster", "toastr", "popup", "alert", "alert-list" ],
-  "version": "0.0.8",
+  "version": "0.0.9",
   "authors": [
     "Null McNull <no@spam.org>"
   ],
@@ -16,10 +16,8 @@
     "karma.conf.js",
     "package.json",
     "test-results.testxml",
-    "/LICENSE",
     "LICENSE-banner.txt",
     "license-banner.txt",
-    "/README.md",
     "package.sh",
     "gulpfile.js"
   ],
