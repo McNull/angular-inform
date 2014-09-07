@@ -2,7 +2,7 @@
   "name": "angular-inform",
   "description": "A small growl-like easy-to-use message toaster for angular.",
   "keywords": [ "angular", "growl", "message", "message-list", "notification", "notification-list", "toaster", "toastr", "popup", "alert", "alert-list" ],
-  "version": "0.0.9",
+  "version": "0.0.10",
   "authors": [
     "Null McNull <no@spam.org>"
   ],
@@ -10,25 +10,22 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "vendor",
-    "public",
+    "bower_components",
+    "gulp-tasks",
     "src",
-    "karma.conf.js",
-    "package.json",
-    "test-results.testxml",
-    "LICENSE-banner.txt",
-    "license-banner.txt",
-    "package.sh",
-    "gulpfile.js",
+    "dest",
+    "/build-config.js",
+    "/gulpfile.js",
+    "/package.json",
     "/README.md",
-    "/LICENSE"
+    "/karma.conf.js"
   ],
   "dependencies": {
     "angular": "~1.2.16"
   },
   "main": [
-    "dist/angular-inform.min.css",
-    "dist/angular-inform.min.js"
+    "dist/angular-inform.css",
+    "dist/angular-inform.js"
   ],
   "devDependencies": {
     "angular-mocks": "~1.2.16",
@@ -38,5 +35,16 @@
     "modernizr": "~2.8.3",
     "respondJS": "~1.4.2",
     "showdown": "~0.3.1"
+  },
+  "overrides": {
+    "respond": {
+      "main": "dest/respond.min.js"
+    },
+    "showdown": {
+      "main": "compressed/showdown.js"
+    },
+    "angular-mocks": {
+      "ignore": true
+    }
   }
 }

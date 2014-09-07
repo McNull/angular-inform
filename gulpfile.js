@@ -1,64 +1,99 @@
+#!/usr/bin/env node
 
-// - - - - 8-< - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// - - - - 8-< - - - - - - - - - - - - - - - - - - -
 
+var config = require('./build-config.js');
+
+// - - - - 8-< - - - - - - - - - - - - - - - - - - -
+
+var path = require('path');
 var gulp = require('gulp');
-var project = require('gulp-angular');
+var clean = require('gulp-clean');
+var karma = require('gulp-karma');
 
-// - - - - 8-< - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// - - - - 8-< - - - - - - - - - - - - - - - - - - -
 
-var settings = {
+require('./gulp-tasks/bower-task.js')(gulp);
+require('./gulp-tasks/modules-task.js')(gulp);
+require('./gulp-tasks/index-task.js')(gulp);
 
-  files: {
-    vendor: {
-      js: [
-        'angular/angular.js',
-        'angular-route/angular-route.js',
-        'showdown/compressed/showdown.js'
-      ],
-      css: [
-        'bootstrap-css/css/bootstrap.css'
-      ],
-      test: [
-        'jquery/dist/jquery.js',
-        'angular-mocks/angular-mocks.js'
-      ]
-    }
-  }
-};
+// - - - - 8-< - - - - - - - - - - - - - - - - - - -
+// Builds the whole kitchensink including example website
 
-// - - - - 8-< - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-// Initialize the project by providing the gulp instance and the settings.
+gulp.task('kitchensink', [ 'modules', 'bower', 'index', 'sandbox' ], function () {
 
-project.init(gulp, settings);
+  var path = require('path');
 
-// Inform the project of the modules
+  return gulp.src('README.md')
+    .pipe(gulp.dest(path.join(config.folders.dest, 'app')));
 
-project.modules
-
-  // Our main 'app' module
-
-  .add('app')
-
-  // The angular inform module
-
-  .add('inform', {
-    folder: 'angular-inform'
-  })
-
-  .add('showdown', {
-    folder: 'angular-showdown'
-  });
-
-
-// - - - - 8-< - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-gulp.task('build', ['index'], function() {
-  gulp.src('README.md').pipe(gulp.dest('public/app'));
 });
 
-// - - - - 8-< - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// - - - - 8-< - - - - - - - - - - - - - - - - - - -
 
-module.exports = project; // Needed for Karma
+gulp.task('sandbox-clean', [ 'modules', 'bower' ], function () {
+  return gulp.src(path.join(config.folders.dest, 'sandbox'))
+    .pipe(clean());
+});
 
-// - - - - 8-< - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+gulp.task('sandbox', [ 'sandbox-clean', 'modules', 'bower' ], function () {
+  return gulp.src(path.join(config.folders.src, 'sandbox/**/*'))
+    .pipe(gulp.dest(path.join(config.folders.dest, 'sandbox')));
+});
+//
+// - - - - 8-< - - - - - - - - - - - - - - - - - - -
 
+gulp.task('test-run', ['angular-inform'], function () {
+
+  return gulp.src([
+    'bower_components/angular/angular.js',
+    'bower_components/angular-mocks/angular-mocks.js',
+    path.join(config.folders.dest, 'angular-inform/angular-inform.min.js'),
+    path.join(config.folders.src, 'angular-inform/**/*.test.js')
+  ])
+    .pipe(karma({
+      configFile: 'karma.conf.js',
+      action: 'run'
+    })).on('error', function (err) {
+      throw err;
+    });
+
+});
+
+gulp.task('test-watch', ['angular-inform'], function () {
+
+  gulp.src([
+    'bower_components/angular/angular.js',
+    'bower_components/angular-mocks/angular-mocks.js',
+    path.join(config.folders.src, 'angular-inform/angular-inform.js'),
+    path.join(config.folders.dest, 'angular-inform/angular-inform-templates.js'),
+    path.join(config.folders.src, 'angular-inform/**/*.js')
+  ])
+    .pipe(karma({
+      configFile: 'karma.conf.js',
+      action: 'watch'
+    }));
+
+});
+
+// - - - - 8-< - - - - - - - - - - - - - - - - - - -
+
+gulp.task('dist-clean', ['angular-inform-clean'], function () {
+
+  return gulp.src('dist/**/*', { read: false }).pipe(clean());
+
+});
+
+gulp.task('dist', ['dist-clean', 'angular-inform', 'test-run'], function () {
+
+  var destGlob = path.join(config.folders.dest, 'angular-inform/**/*');
+  return gulp.src([ destGlob, 'README.md', '!**/angular-inform-templates.js' ])
+    .pipe(gulp.dest('dist'));
+
+});
+
+// - - - - 8-< - - - - - - - - - - - - - - - - - - -
+
+gulp.task('default', [ 'dist' ]);
+
+// - - - - 8-< - - - - - - - - - - - - - - - - - - -

@@ -2,6 +2,5 @@
 .idea/tasks.xml
 .DS_Store
 node_modules/*
-vendor/*
-public/*
-test-results.testxml
+bower_components/*
+dest/*

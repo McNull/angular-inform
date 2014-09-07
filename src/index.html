@@ -8,17 +8,18 @@
   <link rel="shortcut icon" href="app/assets/favicon.ico">
   <title></title>
 
-  <!-- inject:vendor:css -->
-  <!-- endinject -->
-
-  <!-- inject:css -->
-  <!-- endinject -->
+  <link rel="stylesheet" href="vendor/bootstrap-css/css/bootstrap.min.css">
+  <% _.forEach(css, function(include) { %>
+  <link rel="stylesheet" href="<%-include%>">
+  <%
+  }); %>
 
   <!--[if lt IE 9]>
   <script src="vendor/modernizr/modernizr.js"></script>
   <script src="vendor/respondJS/dest/respond.min.js"></script>
-  <script src="vendor/jquery/dist/dist/jquery.min.js"></script>
+  <script src="vendor/jquery/dist/jquery.min.js"></script>
   <![endif]-->
+
 </head>
 <body>
 
@@ -46,11 +47,14 @@
 
 <section ng-view></section>
 
-<!-- inject:vendor:js -->
-<!-- endinject -->
+<script src="vendor/showdown/compressed/showdown.js"></script>
+<script src="vendor/angular/angular.js"></script>
+<script src="vendor/angular-route/angular-route.min.js"></script>
 
-<!-- inject:js -->
-<!-- endinject -->
+<% _.forEach(js, function(include) { %>
+<script src="<%-include%>"></script>
+<%
+}); %>
 
 </body>
 </html>

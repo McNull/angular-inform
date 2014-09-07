@@ -1,0 +1,45 @@
+/*!
+   angular-inform v0.0.10
+   (c) 2014 (null) McNull https://github.com/McNull/angular-inform
+   License: MIT
+*/
+
+
+.inform-fixed {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+.inform-message {
+  overflow: hidden;
+}
+
+.inform-fixed .inform-message {
+  width: 350px;
+}
+
+/*.inform-fixed .inform-message.inform-message-max {*/
+  /*position: fixed;*/
+  /*left: 20px;*/
+  /*right: 20px;*/
+  /*width: auto;*/
+  /*top: 20px;*/
+  /*bottom: 0;*/
+  /*z-index: 1;*/
+  /*overflow: auto;*/
+/*}*/
+
+@media screen and (max-width: 480px) {
+
+  .inform-fixed {
+    position: fixed;
+    left: 20px;
+  }
+
+  .inform-fixed .inform-message {
+    width: auto;
+  }
+}
+/*# sourceMappingURL=angular-inform.css.map */

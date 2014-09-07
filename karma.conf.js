@@ -1,7 +1,5 @@
 // Karma configuration
-// Generated on Fri May 16 2014 18:58:22 GMT+0200 (CEST)
-
-var project = require('./gulpfile');
+// Generated on Thu Aug 14 2014 11:05:59 GMT+0200 (CEST)
 
 module.exports = function(config) {
   config.set({
@@ -16,26 +14,25 @@ module.exports = function(config) {
 
 
     // list of files / patterns to load in the browser
-    files: project.test.includes(),
+    files: [
+    ],
 
 
     // list of files to exclude
     exclude: [
-      
     ],
 
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-    
     },
 
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['growl', 'dots', 'xml'],
+    reporters: ['dots', 'growl'],
 
 
     // web server port
@@ -52,7 +49,7 @@ module.exports = function(config) {
 
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: true,
+    autoWatch: false,
 
 
     // start these browsers

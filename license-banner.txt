@@ -1,5 +1,0 @@
-/*
- Angular Inform
- (c) 2010-2014 Null McNull, Inc. https://github.com/McNull
- License: MIT
-*/
