@@ -137,8 +137,12 @@ angular.module('inform-exception', ['inform'])
       var inform;
 
       return function(exception, cause) {
-        inform = inform || $injector.get('inform');
-        inform.add(exception.toString(), { type: 'danger', ttl: 0 });
+        try {
+          inform = inform || $injector.get('inform');
+          inform.add(exception.toString(), { type: 'danger', ttl: 0 });
+        } catch(ex) {
+          console.log('$exceptionHandler', ex);
+        }
         $delegate(exception, cause);
       };
     }]);
@@ -149,8 +153,13 @@ angular.module('inform-http-exception', ['inform'])
   .factory('informHttpInterceptor', ["$q", "inform", function ($q, inform) {
 
     function interceptor(rejection) {
-      var msg = 'Network error (' + rejection.status + '): ' + rejection.data;
-      inform.add(msg, { type: 'danger', ttl: 0});
+      try {
+        var msg = 'Network error (' + rejection.status + '): ' + rejection.data;
+        inform.add(msg, { type: 'danger', ttl: 0});
+      } catch(ex) {
+        console.log('$httpProvider', ex);
+      }
+
       return $q.reject(rejection);
     }
 

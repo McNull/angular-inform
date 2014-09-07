@@ -6,8 +6,12 @@ angular.module('inform-exception', ['inform'])
       var inform;
 
       return function(exception, cause) {
-        inform = inform || $injector.get('inform');
-        inform.add(exception.toString(), { type: 'danger', ttl: 0 });
+        try {
+          inform = inform || $injector.get('inform');
+          inform.add(exception.toString(), { type: 'danger', ttl: 0 });
+        } catch(ex) {
+          console.log('$exceptionHandler', ex);
+        }
         $delegate(exception, cause);
       };
     }]);
