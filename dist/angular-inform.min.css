@@ -1,5 +1,5 @@
 /*!
-   angular-inform v0.0.11
+   angular-inform v0.0.12
    (c) 2014 (null) McNull https://github.com/McNull/angular-inform
    License: MIT
 */.inform-fixed{position:fixed;top:20px;right:20px;z-index:100}.inform-message{overflow:hidden}.inform-fixed .inform-message{width:350px}@media screen and (max-width:480px){.inform-fixed{position:fixed;left:20px}.inform-fixed .inform-message{width:auto}}

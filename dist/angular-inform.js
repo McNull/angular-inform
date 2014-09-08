@@ -1,5 +1,5 @@
 /*!
-   angular-inform v0.0.11
+   angular-inform v0.0.12
    (c) 2014 (null) McNull https://github.com/McNull/angular-inform
    License: MIT
 */
@@ -154,7 +154,7 @@ angular.module('inform-http-exception', ['inform'])
 
     function interceptor(rejection) {
       try {
-        var msg = 'Network error (' + rejection.status + '): ' + rejection.data;
+        var msg = 'Network error (' + rejection.status + '): ' + rejection.statusText;
         inform.add(msg, { type: 'danger', ttl: 0});
       } catch(ex) {
         console.log('$httpProvider', ex);

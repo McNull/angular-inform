@@ -1,6 +1,6 @@
 {
   "name": "angular-inform",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "A growl-like easy-to-use message toaster for angular.",
   "main": "index.js",
   "scripts": {
