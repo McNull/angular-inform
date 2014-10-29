@@ -2,7 +2,7 @@
   "name": "angular-inform",
   "description": "A small growl-like easy-to-use message toaster for angular.",
   "keywords": [ "angular", "growl", "message", "message-list", "notification", "notification-list", "toaster", "toastr", "popup", "alert", "alert-list" ],
-  "version": "0.0.12",
+  "version": "0.0.13",
   "authors": [
     "Null McNull <no@spam.org>"
   ],
@@ -28,8 +28,9 @@
     "dist/angular-inform.js"
   ],
   "devDependencies": {
-    "angular-mocks": "~1.2.16",
-    "angular-route": "~1.2.16",
+    "angular-mocks": "~1.2.26",
+    "angular-route": "~1.2.26",
+    "angular-animate": "~1.2.26",
     "bootstrap-css": "~3.1.1",
     "jquery": "1.*",
     "modernizr": "~2.8.3",

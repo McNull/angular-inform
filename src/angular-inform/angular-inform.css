@@ -14,17 +14,6 @@
   width: 350px;
 }
 
-/*.inform-fixed .inform-message.inform-message-max {*/
-  /*position: fixed;*/
-  /*left: 20px;*/
-  /*right: 20px;*/
-  /*width: auto;*/
-  /*top: 20px;*/
-  /*bottom: 0;*/
-  /*z-index: 1;*/
-  /*overflow: auto;*/
-/*}*/
-
 @media screen and (max-width: 480px) {
 
   .inform-fixed {
@@ -34,5 +23,68 @@
 
   .inform-fixed .inform-message {
     width: auto;
+  }
+}
+
+.inform-message-wrap {
+  overflow: hidden;
+}
+.inform-animate .inform-message-wrap.ng-enter {
+  animation: 1.0s inform-message-slide-in;
+}
+
+.inform-animate .inform-message-wrap.ng-leave {
+  animation: 1.0s inform-message-fade-out;
+}
+
+.inform-animate .inform-badge.ng-enter {
+  animation: inform-badge-scale 0.5s;
+}
+
+@keyframes inform-badge-scale {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  25% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes inform-message-slide-in {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+    max-height: 0px;
+  }
+  50% {
+    opacity: 0;
+    transform: translateX(100%);
+    max-height: 1000px;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+    max-height: 1000px;
+  }
+}
+
+@keyframes inform-message-fade-out {
+  0% {
+    opacity: 1;
+    max-height: 1000px;
+  }
+  50% {
+    opacity: 0;
+    max-height: 1000px;
+  }
+  100% {
+    opacity: 0;
+    max-height: 0px;
   }
 }

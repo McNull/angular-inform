@@ -1,7 +1,8 @@
 <div class="inform">
-  <div ng-repeat="msg in messages | orderBy:'-tickCount'" class="inform-message alert alert-{{ msg.type }} alert-dismissible"
-       role="alert" ng-mouseenter="cancelTimeout(msg)" ng-mouseleave="setTimeout(msg)">
-    <button type="button" class="close" ng-click="remove(msg)"><span>&times;</span></button>
-    <span class="inform-message-content"><span class="badge" ng-if="msg.count > 1">{{ msg.count }}</span> {{ msg.content }}</span>
+  <div ng-repeat="msg in messages | orderBy:'-tickCount'" class="inform-message-wrap">
+    <div class="inform-message alert alert-{{ msg.type }} alert-dismissible" role="alert" ng-mouseenter="cancelTimeout(msg)" ng-mouseleave="setTimeout(msg)">
+      <button type="button" class="close" ng-click="remove(msg)"><span>&times;</span></button>
+      <span class="inform-message-content"><span class="badge inform-badge" ng-if="msg.count > 1">{{ msg.count }}</span> {{ msg.content }}</span>
+    </div>
   </div>
 </div>

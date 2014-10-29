@@ -37,7 +37,7 @@ Insert the `inform` directive somewhere in your _HTML_.
 <div inform></div>
 ```
 
-#### Optional Installation Steps
+### Optional Installation Steps
 
 Provide the element the `inform-fixed` class if you want the messages to float at the upper left position.
 
@@ -53,6 +53,18 @@ Make your main angular module dependent of the `inform-http-exception` module if
 
     angular.module('myApp', ['inform', 'inform-http-exception']);
 
+Install `angular-animate` and provide the element the `inform-animate` class if you want to have CSS3 animations.
+
+```
+# Install angular-animate
+$ bower install angular-animate
+
+// Enable ngAnimate in your module
+angular.module('myApp', ['inform', 'ngAnimate']);
+
+<!-- Set the animation class -->
+<div inform class="inform-animate"></div>
+```
 
 Usage
 =====
