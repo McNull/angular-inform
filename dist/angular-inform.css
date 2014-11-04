@@ -1,31 +1,39 @@
 /*!
-   angular-inform v0.0.15
+   angular-inform v0.0.16
    (c) 2014 (null) McNull https://github.com/McNull/angular-inform
    License: MIT
 */
 
 
+
 .inform-fixed {
   position: fixed;
   top: 20px;
+  left: 20px;
   right: 20px;
-  z-index: 100;
+  z-index: 1002;
 }
 
-.inform-fixed.inform-center {
-  right: 0;
-  left: 0;
-  margin-left: auto;
-  margin-right: auto;
-  width: 350px;
+.inform-fixed .inform-message {
+  width: auto;
+}
+
+@media screen and (min-width: 480px) {
+  .inform-fixed {
+    left: auto;
+    width: 440px;
+  }
+
+  .inform-fixed.inform-center {
+    right: 0;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .inform-message {
   overflow: hidden;
-}
-
-.inform-fixed .inform-message {
-  width: 350px;
 }
 
 .inform-shadow .inform-message {
@@ -43,17 +51,6 @@
   color: #333;
 }
 
-@media screen and (max-width: 480px) {
-
-  .inform-fixed {
-    position: fixed;
-    left: 20px;
-  }
-
-  .inform-fixed .inform-message {
-    width: auto;
-  }
-}
 
 .inform-message-wrap {
   /*overflow: hidden;*/
