@@ -1,5 +1,5 @@
 /*!
-   angular-inform v0.0.14
+   angular-inform v0.0.15
    (c) 2014 (null) McNull https://github.com/McNull/angular-inform
    License: MIT
 */
