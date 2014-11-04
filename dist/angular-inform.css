@@ -1,5 +1,5 @@
 /*!
-   angular-inform v0.0.13
+   angular-inform v0.0.14
    (c) 2014 (null) McNull https://github.com/McNull/angular-inform
    License: MIT
 */
@@ -12,12 +12,35 @@
   z-index: 100;
 }
 
+.inform-fixed.inform-center {
+  right: 0;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 350px;
+}
+
 .inform-message {
   overflow: hidden;
 }
 
 .inform-fixed .inform-message {
   width: 350px;
+}
+
+.inform-shadow .inform-message {
+  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.25);
+}
+
+.inform-message.alert-primary {
+  color: #FFF;
+  background-color: #428BCA;
+}
+
+.inform-message.alert-default {
+  background-color: #F5F5F5;
+  border: 1px solid #CCC;
+  color: #333;
 }
 
 @media screen and (max-width: 480px) {
@@ -33,7 +56,7 @@
 }
 
 .inform-message-wrap {
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 .inform-animate .inform-message-wrap.ng-enter {
   -webkit-animation: 1.0s inform-message-slide-in;

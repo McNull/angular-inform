@@ -13,7 +13,7 @@ app.controller('DemoController', function($scope, inform, $http) {
     content: 'The message content',
     options: {
       ttl: 5000,
-      type: 'info'
+      type: 'default'
     }
   };
 
@@ -27,6 +27,14 @@ app.controller('DemoController', function($scope, inform, $http) {
 
     if($scope.element.fixed) {
       classes.push('inform-fixed');
+    }
+
+    if($scope.element.shadows) {
+      classes.push('inform-shadow');
+    }
+
+    if($scope.element.center) {
+      classes.push('inform-center');
     }
 
     var markup = '<div inform';
@@ -69,7 +77,9 @@ app.controller('DemoController', function($scope, inform, $http) {
 
   $scope.element = {
     fixed: true,
-    animations: true
+    animations: true,
+    shadows: true,
+    center: false
   };
 
   $scope.add = function(msg) {

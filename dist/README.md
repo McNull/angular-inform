@@ -45,6 +45,20 @@ Provide the element the `inform-fixed` class if you want the messages to float a
 <div inform class="inform-fixed"></div>
 ```
 
+Provide the element the `inform-fixes` and `inform-center` to display the messages in the center of the screen.
+
+```
+<div inform class="inform-fixed inform-center"></div>
+```
+
+Provide the element the `inform-shadow` to give the messages a light box-shadow.
+
+```
+<div inform class="inform-shadow"></div>
+```
+
+#### Unhandled Exceptions
+
 Make your main angular module dependent of the `inform-exception` module if you want _unhandled exceptions_ to be displayed in the notification list.
 
     angular.module('myApp', ['inform', 'inform-exception']);
@@ -52,6 +66,8 @@ Make your main angular module dependent of the `inform-exception` module if you 
 Make your main angular module dependent of the `inform-http-exception` module if you want _http exceptions_ to be displayed in the notification list.
 
     angular.module('myApp', ['inform', 'inform-http-exception']);
+
+#### Animations
 
 Install `angular-animate` and provide the element the `inform-animate` class if you want to have CSS3 animations.
 
@@ -101,8 +117,17 @@ The default property values are used if no options are provided. See _configurat
     	
         /*
             The type of message to enable styling. 
-            Values can be 'success', 'info', 'warning', 'danger' or any other custom required type.
-            Default value is 'info'
+            Values can be any of the following:
+            
+            - 'default'
+            - 'primary'
+            - 'success'
+            - 'info'
+            - 'warning'
+            - 'danger'
+            -  or any other custom type.
+            
+            Default value is 'default'
         */
         type: 'danger'
     }

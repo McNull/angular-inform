@@ -3,7 +3,7 @@ inform.provider('inform', function () {
   var provider = this;
 
   this._defaults = {
-    type: 'info',
+    type: 'default',
     ttl: 5000
   };
 

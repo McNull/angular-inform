@@ -1,5 +1,5 @@
 /*!
-   angular-inform v0.0.13
+   angular-inform v0.0.14
    (c) 2014 (null) McNull https://github.com/McNull/angular-inform
    License: MIT
 */
@@ -29,7 +29,7 @@ inform.provider('inform', function () {
   var provider = this;
 
   this._defaults = {
-    type: 'info',
+    type: 'default',
     ttl: 5000
   };
 

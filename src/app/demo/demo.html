@@ -13,6 +13,8 @@
       </div>
       <div class="form-group">
         <select class="form-control" ng-model="msg.options.type">
+          <option value="default">Default</option>
+          <option value="primary">Primary</option>
           <option value="success">Success</option>
           <option value="info">Info</option>
           <option value="warning">Warning</option>
@@ -43,13 +45,28 @@
           <input type="checkbox" ng-model="element.animations"> Enable animations
         </label>
       </div>
+
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" ng-model="element.shadows"> Enable shadows
+        </label>
+      </div>
+
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" ng-model="element.center"> Center messages
+        </label>
+      </div>
+
     </form>
 
     <pre><code>{{ htmlMarkup() }}</code></pre>
     <pre ng-if="element.animations"><code>angular.module('myModule', ['inform', 'ngAnimate']);</code></pre>
 
     <h4 ng-if="!element.fixed && inform.messages().length > 0">Messages</h4>
-    <div inform ng-class="{ 'inform-fixed': element.fixed, 'inform-animate': element.animations }"></div>
+
+    <div inform
+         ng-class="{ 'inform-fixed': element.fixed, 'inform-animate': element.animations, 'inform-shadow': element.shadows, 'inform-center': element.center }"></div>
 
     <h3>Unhandled Exceptions</h3>
     <pre><code>angular.module('myModule', ['inform', 'inform-exception']);</code></pre>
@@ -58,6 +75,7 @@
     <h3>HTTP Exceptions</h3>
     <pre><code>angular.module('myModule', ['inform', 'inform-http-exception']);</code></pre>
     <button type="button" class="btn btn-danger" ng-click="throwHttpException()">Request invalid url</button>
-  </div> <!-- MessageController -->
+  </div>
+  <!-- MessageController -->
 
 </div>
