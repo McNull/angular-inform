@@ -4,29 +4,54 @@
 
     <h3>Javascript</h3>
 
-    <form class="messages-form form-inline">
-      <div class="form-group">
-        <input class="form-control" type="text" ng-model="msg.content" placeholder="Content">
+    <form class="form">
+      <div class="row">
+        <div class="col-sm-9">
+
+          <div class="form-group">
+            <label for="msgContent">Content</label>
+
+              <label class="checkbox-inline pull-right">
+                <input type="checkbox" ng-model="msg.options.html"> Allow HTML
+              </label>
+
+            <textarea id="msgContent" class="form-control" ng-model="msg.content" rows="4"
+                      placeholder="The content of the message"></textarea>
+          </div>
+
+        </div>
+
+        <div class="col-sm-3">
+
+          <div class="form-group">
+            <label for="msgTTL">Time to live</label>
+            <input id="msgTTL" class="form-control" type="number" ng-model="msg.options.ttl"
+                   title="The amount of time (ms) the message should be visible. Value of < 0 indicates forever."
+                   placeholder="TTL">
+          </div>
+
+          <div class="form-group">
+            <label for="msgType">Type</label>
+            <select id="msgType" class="form-control" ng-model="msg.options.type">
+              <option value="default">Default</option>
+              <option value="primary">Primary</option>
+              <option value="success">Success</option>
+              <option value="info">Info</option>
+              <option value="warning">Warning</option>
+              <option value="danger">Danger</option>
+            </select>
+          </div>
+
+
+        </div>
+
       </div>
+
       <div class="form-group">
-        <input class="form-control" type="number" ng-model="msg.options.ttl" placeholder="TTL">
-      </div>
-      <div class="form-group">
-        <select class="form-control" ng-model="msg.options.type">
-          <option value="default">Default</option>
-          <option value="primary">Primary</option>
-          <option value="success">Success</option>
-          <option value="info">Info</option>
-          <option value="warning">Warning</option>
-          <option value="danger">Danger</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-default" ng-click="add(msg)">Add</button>
-      </div>
-      <div class="form-group">
+        <button type="submit" class="btn btn-primary" ng-click="add(msg)">Add</button>
         <button type="button" class="btn btn-default" ng-click="clear()">Clear</button>
       </div>
+
     </form>
 
     <pre><code>{{ jsStatement() }}</code></pre>

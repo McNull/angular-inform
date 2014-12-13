@@ -1,10 +1,16 @@
 app.controller('DemoController', function($scope, inform, $http) {
 
   if(inform.messages().length === 0) {
-    inform.add('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab amet, blanditiis debitis dolorem doloremque et facilis harum in iusto laborum minima molestiae nemo nisi non possimus, quisquam rerum tempore voluptates.', { ttl: -1, type: 'success' });
-    inform.add('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab amet, blanditiis debitis dolorem doloremque et facilis harum in iusto laborum minima molestiae nemo nisi non possimus, quisquam rerum tempore voluptates.', { ttl: -1, type: 'info' });
-    inform.add('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda atque, earum est id illum laboriosam maxime praesentium quisquam! Blanditiis cum deleniti eum impedit quasi. Eius eligendi eveniet ipsum natus quis.', { ttl: -1, type: 'warning' });
-    inform.add('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda deserunt dicta esse, ipsam molestiae nobis provident qui quidem quis repudiandae totam veniam voluptas voluptatum? A adipisci aut cumque earum pariatur?', { ttl: -1, type: 'danger' });
+
+    //inform.add('<pre><code>{{ msg | json }}</code></pre>', { ttl: -1, type: 'success', html: true });
+    //
+    //
+    //inform.add('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab amet, blanditiis debitis dolorem doloremque et facilis harum in iusto laborum minima molestiae nemo nisi non possimus, quisquam rerum tempore voluptates.', { ttl: -1, type: 'info' });
+    //inform.add('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda atque, earum est id illum laboriosam maxime praesentium quisquam! Blanditiis cum deleniti eum impedit quasi. Eius eligendi eveniet ipsum natus quis.', { ttl: -1, type: 'warning' });
+    //inform.add('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda deserunt dicta esse, ipsam molestiae nobis provident qui quidem quis repudiandae totam veniam voluptas voluptatum? A adipisci aut cumque earum pariatur?', { ttl: -1, type: 'danger' });
+    //
+    //inform.add('<h1>HTML <small>content</small></h1><blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p><footer>Someone famous</footer></blockquote>', { ttl: -1, html: true });
+    //inform.add('<h1>HTML <small>content</small></h1><blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p><footer>Someone famous</footer></blockquote>', { ttl: -1, html: true });
   }
 
   $scope.inform = inform;
@@ -60,9 +66,14 @@ app.controller('DemoController', function($scope, inform, $http) {
       options = { ttl: ttl };
     }
 
-    if($scope.msg.options.type !== 'info') {
+    if($scope.msg.options.type !== 'default') {
       options = options || {};
       options.type = $scope.msg.options.type;
+    }
+
+    if($scope.msg.options.html) {
+      options = options || {};
+      options.html = true;
     }
 
     if(options) {

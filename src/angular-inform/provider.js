@@ -13,7 +13,7 @@ inform.provider('inform', function () {
   };
 
 
-  this.$get = ['$timeout', function ($timeout) {
+  this.$get = ['$timeout', '$sce', function ($timeout, $sce) {
 
     var _messages = [];
 
@@ -52,7 +52,7 @@ inform.provider('inform', function () {
       var msg = angular.extend({}, provider._defaults, options);
 
       var idx = _indexOf(function (x) {
-        return x.content === content && x.type == msg.type;
+        return x.content.toString() === content && x.type == msg.type;
       });
 
       if (idx >= 0) {
@@ -63,6 +63,11 @@ inform.provider('inform', function () {
       } else {
 
         msg.content = content;
+
+        if(msg.html) {
+          msg.content = $sce.trustAsHtml(content);
+        }
+
         msg.tickCount = +new Date();
         msg.count = 1;
 

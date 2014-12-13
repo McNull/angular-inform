@@ -1,5 +1,5 @@
 /*!
-   angular-inform v0.0.16
+   angular-inform v0.0.17
    (c) 2014 (null) McNull https://github.com/McNull/angular-inform
    License: MIT
 */
@@ -34,6 +34,10 @@
 
 .inform-message {
   overflow: hidden;
+}
+
+.inform-message > button.close {
+  margin-left: 15px;
 }
 
 .inform-shadow .inform-message {
