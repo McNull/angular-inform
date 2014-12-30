@@ -1,5 +1,5 @@
 /*!
-   angular-inform v0.0.17
+   angular-inform v0.0.18
    (c) 2014 (null) McNull https://github.com/McNull/angular-inform
    License: MIT
 */
@@ -76,6 +76,11 @@ inform.provider('inform', function () {
     function add(content, options) {
 
       var msg = angular.extend({}, provider._defaults, options);
+
+      if(!angular.isString(content)) {
+        content = '<pre><code>' + JSON.stringify(content, null, '  ') + '</code></pre>';
+        msg.html = true;
+      }
 
       var idx = _indexOf(function (x) {
         return x.content.toString() === content && x.type == msg.type;
