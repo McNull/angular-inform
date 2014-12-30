@@ -2,7 +2,7 @@
   "name": "angular-inform",
   "description": "A small growl-like easy-to-use message toaster for angular.",
   "keywords": [ "angular", "growl", "message", "message-list", "notification", "notification-list", "toaster", "toastr", "popup", "alert", "alert-list" ],
-  "version": "0.0.17",
+  "version": "0.0.18",
   "authors": [
     "Null McNull <no@spam.org>"
   ],
