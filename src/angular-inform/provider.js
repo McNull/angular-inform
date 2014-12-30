@@ -51,6 +51,11 @@ inform.provider('inform', function () {
 
       var msg = angular.extend({}, provider._defaults, options);
 
+      if(!angular.isString(content)) {
+        content = '<pre><code>' + JSON.stringify(content, null, '  ') + '</code></pre>';
+        msg.html = true;
+      }
+
       var idx = _indexOf(function (x) {
         return x.content.toString() === content && x.type == msg.type;
       });
